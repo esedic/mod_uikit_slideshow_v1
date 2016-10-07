@@ -14,7 +14,9 @@
         <folder>tmpl</folder>
     </files>
     <media destination="mod_uikit_slideshow" folder="media">
-        <folder>assets</folder>
+        <folder>css</folder>
+        <folder>fonts</folder>
+        <folder>js</folder>
     </media>
     <config>
         <fields name="params">
