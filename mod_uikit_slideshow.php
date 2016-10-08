@@ -29,28 +29,45 @@ $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/slidenav.css')
 $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/dotnav.css');
 $doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/uikit.min.js');
 $doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/slideshow.min.js');
-$doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/slideshow-fx.min.js');
+// todo: advanced animation
+// if($animation == 1) {
+// 	$doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/slideshow-fx.min.js');
+// }
 
 /* Module id */
 $module_id = $module->id;
 
 /* Params */
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
-$autoslide       = (int) $params->get('autoslide', 1);
-$interval        = (int) $params->get('interval', 5000);
-$transition      = (int) $params->get('transition', 0);
 
-$transition = $transition !== 0 ? ' carousel-fade' : '';
+// autoplay
+$autoplay = (int) $params->get('autoplay', 1);
+$autoplay = $params->get('autoplay') !== 1 ? ', autoplay:true' : '';
 
-$interval   = $interval !== 5000 ? ' data-interval="' . $interval . '"' : '';
-$interval   = $autoslide !== 0 ? $interval : ' data-interval="false"';
+// interval
+$interval = (int) $params->get('interval', 3000);
+$interval = $params->get('interval') !== 3000 ? ', autoplayInterval::\''.$interval.'\'' : '';
 
-$indicators = (int) $params->get('indicators', 1);
-$controls   = (int) $params->get('controls', 1);
+// animation
+$animation = $params->get('animation', 'fade');
+if($animation == "scroll") {
+	$animation =  ", animation:'scroll'";
+}
+else if($animation == "scale") {
+	$animation =  ", animation:'scale'";
+}
+else if($animation == "swipe") {
+	$animation =  ", animation:'swipe'";
+}
+else {
+    $animation = "";
+}
 
-$pause      = (int) $params->get('pause') !== 1 ? ' data-pause="false"' : '';
-$wrap       = (int) $params->get('wrap') !== 1 ? ' data-wrap="false"' : '';
-$keyboard   = (int) $params->get('keyboard') !== 1 ? ' data-keyboard="false"' : '';
+$pause = (int) $params->get('pause', 1);
+$pause = $params->get('pause') !== 1 ? ', pauseOnHover:true' : '';
+
+$dotnav = (int) $params->get('dotnav', 1);
+$slidenav = (int) $params->get('slidenav', 1);
 
 $images     = modUikitSlideshowHelper::groupByKey($params->get('images'));
 

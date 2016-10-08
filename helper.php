@@ -86,7 +86,6 @@ class ModUikitSlideshowHelper
         foreach ($data as $key => $row)
         {
             $main_image[$key]        = $row['main_image'];
-            $alternative_image[$key] = $row['alternative_image'];
             $title[$key]             = $row['title'];
             $link[$key]              = $row['link'];
             $target[$key]            = $row['target'];

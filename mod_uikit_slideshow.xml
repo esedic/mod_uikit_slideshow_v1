@@ -25,10 +25,10 @@
                        type="repeatable"
                        icon="images"
                        description="PLG_TINY_FIELD_TEMPLATE_FIELD_ELEMENTS_DESC"
-                       label="Carousel images"
+                       label="Slideshow images"
                        maximum="10"
                        filter="raw"
-                       default="{'ordering':'','main_image':'','alternative_image':'','title':'','link':'','target':'0','description':''}">
+                       default="{'ordering':'','main_image':'','title':'','link':'','target':'0','description':''}">
                     <fields name="params">
                         <fieldset hidden="true" name="images_modal" repeat="true">
                             <field name="ordering"
@@ -44,12 +44,6 @@
                                    directory="images"
                                    label="Main image"
                                    description="This is the main image for this slide" />
-                            <field name="alternative_image"
-                                   type="media"
-                                   preview="tooltip"
-                                   directory="images"
-                                   label="Alternative image"
-                                   description="Alternative image for small or extra small devices" />
                             <field name="title"
                                    type="text"
                                    default=""
@@ -80,44 +74,46 @@
                        type="spacer"
                        hr="true" />
 
-                <field name="autoslide"
+                <field name="autoplay"
                        type="radio"
                        class="btn-group btn-group-yesno radio"
                        default="1"
-                       label="Auto slide"
-                       description="If no, carousel will not automatically cycle.">
+                       label="Autoplay"
+                       description="Defines whether or not the slideshow items should switch automatically">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="transition"
+                <field name="animation"
                        type="list"
-                       default="0"
-                       label="Transition"
-                       description="Image transition">
-                    <option value="0">Default</option>
-                    <option value="1">Fade</option>
+                       default="fade"
+                       label="Animation"
+                       description="Defines the preferred transition between items">
+                    <option value="fade">Fade (default)</option>
+                    <option value="scroll">Scroll</option>
+                    <option value="scale">Scale</option>
+                    <option value="swipe">Swipe</option>
                 </field>
                 <field name="interval"
                        type="text"
-                       default="5000"
+                       default="3000"
                        label="Interval"
-                       description="The amount of time to delay between automatically cycling an item." />
+                       description="Defines the timespan between switching slideshow items" />
 
-                <field name="indicators"
+                <field name="dotnav"
                        type="radio"
                        class="btn-group btn-group-yesno radio"
                        default="1"
-                       label="Indicators"
-                       description="Turn on or off underside control blobs.">
+                       label="Dot navigation"
+                       description="Turn on or off dot navigation.">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field name="controls"
+                <field name="slidenav"
                        type="radio"
                        class="btn-group btn-group-yesno radio"
                        default="1"
-                       label="Left/right controls"
-                       description="Turn on or off left/right buttons.">
+                       label="Previous/next buttons"
+                       description="Turn on or off navigation with previous and next buttons">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
@@ -125,26 +121,8 @@
                        type="radio"
                        class="btn-group btn-group-yesno radio"
                        default="1"
-                       label="Pauses on mouseenter?"
-                       description="Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="wrap"
-                       type="radio"
-                       class="btn-group btn-group-yesno radio"
-                       default="1"
-                       label="Carousel loop"
-                       description="Whether the carousel should cycle continuously or have hard stops.">
-                    <option value="1">JYES</option>
-                    <option value="0">JNO</option>
-                </field>
-                <field name="keyboard"
-                       type="radio"
-                       class="btn-group btn-group-yesno radio"
-                       default="1"
-                       label="Keyboard control"
-                       description="Whether the carousel should react to keyboard events.">
+                       label="Pauses on hover?"
+                       description="Pause autoplay when hovering a slideshow">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
