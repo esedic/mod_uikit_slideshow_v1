@@ -5,15 +5,15 @@ Intended for use with non-Yootheme templates.
 
 Todos:
 
-*add 'fullscreen' as param
-*add 'height' as param
-*add 'start' as param
-*add 'videoautoplay' as param
-*add 'videomute' as param
-*add 'videoautoplay' as param
-*add 'advanced animations' as param
-*add 'kenburns' as param
-*add 'kenburnsanimations' as param
-*add 'slices' as param
-*add 'overlay' options
-*add option to set Dotnav positions
+* add 'fullscreen' as param
+* add 'height' as param
+* add 'start' as param
+* add 'videoautoplay' as param
+* add 'videomute' as param
+* add 'videoautoplay' as param
+* add 'advanced animations' as param
+* add 'kenburns' as param
+* add 'kenburnsanimations' as param
+* add 'slices' as param
+* add 'overlay' options
+* add option to set Dotnav positions
