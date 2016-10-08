@@ -16,4 +16,4 @@ Todos:
 * add 'kenburnsanimations' as param
 * add 'slices' as param
 * add 'overlay' options
-* add option to set Dotnav positions
+* add option to set Dotnav position
