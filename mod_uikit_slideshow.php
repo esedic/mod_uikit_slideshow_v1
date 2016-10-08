@@ -1,6 +1,6 @@
 <?php
 /**
- * B3 Carousel Module
+ * Uikit Slideshow module
  *
  * @package     Joomla.Site
  * @subpackage  mod_uikit_slideshow
@@ -19,9 +19,13 @@ require_once __DIR__ . '/helper.php';
 
 // todo:
 // add optional assets loading
-// add uikit params
+// add uikit slideshow params
 // other
 
+// load jQuery
+JHtml::_('jquery.framework');
+
+// load Uikit assets
 $doc = JFactory::getDocument();
 $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/uikit.css');
 $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/slideshow.css');
@@ -29,26 +33,27 @@ $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/slidenav.css')
 $doc->addStyleSheet(JUri::root() . 'media/mod_uikit_slideshow/css/dotnav.css');
 $doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/uikit.min.js');
 $doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/slideshow.min.js');
+
 // todo: advanced animation
 // if($animation == 1) {
 // 	$doc->addScript(JUri::root() . 'media/mod_uikit_slideshow/js/slideshow-fx.min.js');
 // }
 
-/* Module id */
+/* Get module id */
 $module_id = $module->id;
 
-/* Params */
+/* Get module parameters */
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));
 
-// autoplay
+// Set autoplay
 $autoplay = (int) $params->get('autoplay', 1);
-$autoplay = $params->get('autoplay') !== 1 ? ', autoplay:true' : '';
+$autoplay = $params->get('autoplay') !== 1 ? 'autoplay:true' : '';
 
-// interval
+// Set autoplay interval
 $interval = (int) $params->get('interval', 3000);
-$interval = $params->get('interval') !== 3000 ? ', autoplayInterval::\''.$interval.'\'' : '';
+$interval = $params->get('interval') !== 3000 ? ', autoplayInterval:' . $interval : '';
 
-// animation
+// Set animation
 $animation = $params->get('animation', 'fade');
 if($animation == "scroll") {
 	$animation =  ", animation:'scroll'";
@@ -63,12 +68,15 @@ else {
     $animation = "";
 }
 
+// Set pause on hover
 $pause = (int) $params->get('pause', 1);
 $pause = $params->get('pause') !== 1 ? ', pauseOnHover:true' : '';
 
+// Set dotnav & slidenav
 $dotnav = (int) $params->get('dotnav', 1);
 $slidenav = (int) $params->get('slidenav', 1);
 
+// Get images
 $images     = modUikitSlideshowHelper::groupByKey($params->get('images'));
 
 require JModuleHelper::getLayoutPath('mod_uikit_slideshow', $params->get('layout', 'default'));

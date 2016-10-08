@@ -15,35 +15,24 @@
 defined( '_JEXEC' ) or die;
 
 // todo:
-// autoplay
-// Slidenav and Dotnav
 // Transitions
 // Ken Burns effect
 // Fullscreen slideshow
-// Overlays
 // Video
-// XML / JavaScript Options
-// Add alert field
 // Multilingual
 // jQuery check
-// replace all BS code with Uikit
 
 if ($images !== null) :
 ?>
-<div id="UikitSlideshow-<?php echo $module_id; ?>" class="uk-slidenav-position" data-uk-slideshow="{<?php echo $autoplay.$interval.$animation.$pause;?>}">
-
-    <!-- Dotnav -->
-    <?php if ($dotnav === 1) : ?>
-    <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
-        <?php foreach ($images as $k => $image) : ?>
-        <li data-uk-slideshow-item="<?php echo $k; ?>"><a href=""></a></li>
-        <?php endforeach; ?>
-    </ul>
-    <?php endif; ?>
-
+<div id="UikitSlideshow-<?php echo $module_id; ?>">
+    <div class="uk-slidenav-position" data-uk-slideshow="{<?php echo $autoplay.$interval.$animation.$pause;?>}">
     <!-- Container -->
     <ul class="uk-slideshow">
     <?php foreach ($images as $k => $image) : ?>
+            <!--
+            <?php // $class = $k == 0 ? ' class="uk-active"' : '';?>
+            <li<?php // echo $class;?>>
+            -->
         <li>
             <img src="<?php echo JUri::root() . $image['main_image']; ?>" alt="<?php echo $image['title']; ?>">
             <?php if ($image['description'] || ($image['link']) !== '') : ?>
@@ -61,6 +50,17 @@ if ($images !== null) :
     <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-previous" data-uk-slideshow-item="previous"></a>
     <a href="" class="uk-slidenav uk-slidenav-contrast uk-slidenav-next" data-uk-slideshow-item="next"></a>
     <?php endif; ?>
+
+        <!-- Dotnav -->
+        <?php if ($dotnav === 1) : ?>
+        <ul class="uk-dotnav uk-dotnav-contrast uk-position-bottom uk-flex-center">
+            <?php foreach ($images as $k => $image) : ?>
+            <li data-uk-slideshow-item="<?php echo $k; ?>"><a href=""></a></li>
+            <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+
+    </div>
 </div>
 
 
