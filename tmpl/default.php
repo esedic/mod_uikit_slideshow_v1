@@ -1,6 +1,6 @@
 <?php
 /**
- * B3 Carousel Module
+ * Uikit Slideshow Module
  *
  * @package     Joomla.Site
  * @subpackage  mod_uikit_slideshow
