@@ -1,5 +1,7 @@
 # mod_uikit_slideshow
-Slideshow module for Joomla 3.2+ based on Yootheme Uikit.
+Slideshow module for Joomla 3.2 based on Yootheme Uikit
+
+DEPRECATED - Using repeatable field type, which is deprecated. You should use Subform form field type (in multiple mode) instead. See here: https://docs.joomla.org/Subform_form_field_type
 
 Intended for use with non-Yootheme templates.
 
